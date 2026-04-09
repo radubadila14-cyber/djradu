@@ -1,7 +1,7 @@
 [package]
 name = "telemetry-sim"
 version = "0.1.0"
-edition = "2024"
+edition = "2021"
 description = "Golden trace generator: produces a deterministic end-to-end ES futures trace"
 
 [dependencies]
