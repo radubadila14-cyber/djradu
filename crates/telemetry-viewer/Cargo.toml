@@ -1,0 +1,10 @@
+[package]
+name = "telemetry-viewer"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+telemetry-core = { path = "../telemetry-core" }
+anyhow = { workspace = true }
+clap = { version = "4", features = ["derive"] }
+serde_json = { workspace = true }

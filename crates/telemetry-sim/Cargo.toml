@@ -1,0 +1,11 @@
+[package]
+name = "telemetry-sim"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+telemetry-core = { path = "../telemetry-core" }
+anyhow = { workspace = true }
+clap = { version = "4", features = ["derive"] }
+rand = "0.8"
+uuid = { version = "1", features = ["v4"] }
