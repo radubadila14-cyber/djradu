@@ -253,6 +253,7 @@ pub fn print_banner() {
 }
 
 /// Telemetry domains this system measures.
+#[allow(dead_code)]
 pub const TELEMETRY_DOMAINS: &[&str] = &[
     "Market Data",
     "Strategy Decisions",

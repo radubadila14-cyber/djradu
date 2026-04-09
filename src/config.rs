@@ -28,9 +28,11 @@ pub struct Config {
     pub quant_api_base_url: String,
     /// Lambda Labs API key (for model training)
     pub lambda_labs_api_key: Option<String>,
-    /// Host to bind the app to
+    /// Host to bind the app to (used when HTTP server is added)
+    #[allow(dead_code)]
     pub app_host: String,
-    /// Port to bind the app to
+    /// Port to bind the app to (used when HTTP server is added)
+    #[allow(dead_code)]
     pub app_port: u16,
 }
 
@@ -40,6 +42,7 @@ impl Config {
     /// LEARNING NOTE: `Result<Config>` means this function can either:
     ///   - Succeed and return a Config (Ok(config))
     ///   - Fail and return an error (Err(e))
+    ///
     /// The `?` operator at the end of lines propagates errors upward.
     pub fn from_env() -> Result<Config> {
         // Load .env file. The `ok()` means we don't crash if .env is missing

@@ -17,6 +17,7 @@ use serde::{Deserialize, Serialize};
 
 /// Represents a trade order in the system.
 #[derive(Debug, Clone, Serialize, Deserialize, sqlx::FromRow)]
+#[allow(dead_code)]
 pub struct Trade {
     pub id: i64,
     pub symbol: String,
@@ -30,6 +31,7 @@ pub struct Trade {
 
 /// For creating a new trade (no id or timestamps yet).
 #[derive(Debug, Clone, Serialize, Deserialize)]
+#[allow(dead_code)]
 pub struct NewTrade {
     pub symbol: String,
     pub side: String,
@@ -39,6 +41,7 @@ pub struct NewTrade {
 
 /// Market data snapshot.
 #[derive(Debug, Clone, Serialize, Deserialize, sqlx::FromRow)]
+#[allow(dead_code)]
 pub struct MarketData {
     pub id: i64,
     pub symbol: String,
@@ -49,6 +52,7 @@ pub struct MarketData {
 
 /// ML model configuration.
 #[derive(Debug, Clone, Serialize, Deserialize, sqlx::FromRow)]
+#[allow(dead_code)]
 pub struct ModelConfig {
     pub id: i64,
     pub name: String,

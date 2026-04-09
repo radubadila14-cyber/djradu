@@ -16,6 +16,7 @@ use serde::{Deserialize, Serialize};
 
 /// Client for the Quant trading API.
 #[derive(Debug, Clone)]
+#[allow(dead_code)] // Fields used via methods that will be called in future phases
 pub struct QuantClient {
     http: reqwest::Client,
     base_url: String,
@@ -24,6 +25,7 @@ pub struct QuantClient {
 
 /// Response from a market quote API.
 #[derive(Debug, Deserialize, Serialize)]
+#[allow(dead_code)]
 pub struct QuoteResponse {
     pub symbol: String,
     pub price: f64,
@@ -45,6 +47,7 @@ impl QuantClient {
     ///
     /// LEARNING: `async fn` means this function doesn't block while waiting
     /// for the HTTP response. The program can do other work in the meantime.
+    #[allow(dead_code)]
     pub async fn get_quote(&self, symbol: &str) -> Result<QuoteResponse> {
         let url = format!("{}/quote/{}", self.base_url, symbol);
 
@@ -71,6 +74,7 @@ impl QuantClient {
     }
 
     /// Check if the Quant API is reachable.
+    #[allow(dead_code)]
     pub async fn health_check(&self) -> Result<bool> {
         let url = format!("{}/health", self.base_url);
         match self.http.get(&url).send().await {

@@ -72,7 +72,7 @@ async fn main() -> Result<()> {
     // -------------------------------------------------------------------------
     // STEP 6: Set up Quant API client
     // -------------------------------------------------------------------------
-    let quant = quant::QuantClient::new(&cfg.quant_api_base_url, &cfg.quant_api_key);
+    let _quant = quant::QuantClient::new(&cfg.quant_api_base_url, &cfg.quant_api_key);
     tracing::info!("Quant API client ready!");
 
     // -------------------------------------------------------------------------

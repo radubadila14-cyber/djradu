@@ -45,15 +45,33 @@ impl TraceId {
     }
 }
 
+impl Default for TraceId {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 impl DecisionId {
     pub fn new() -> Self {
         Self(Uuid::new_v4())
     }
 }
 
+impl Default for DecisionId {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 impl ClientOrderId {
     pub fn new() -> Self {
         Self(Uuid::new_v4())
+    }
+}
+
+impl Default for ClientOrderId {
+    fn default() -> Self {
+        Self::new()
     }
 }
 
