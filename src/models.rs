@@ -21,10 +21,10 @@ use serde::{Deserialize, Serialize};
 pub struct Trade {
     pub id: i64,
     pub symbol: String,
-    pub side: String,       // "BUY" or "SELL"
+    pub side: String, // "BUY" or "SELL"
     pub quantity: f64,
     pub price: f64,
-    pub status: String,     // "PENDING", "FILLED", "CANCELLED"
+    pub status: String, // "PENDING", "FILLED", "CANCELLED"
     pub created_at: chrono::DateTime<chrono::Utc>,
     pub updated_at: chrono::DateTime<chrono::Utc>,
 }

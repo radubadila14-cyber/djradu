@@ -175,8 +175,14 @@ mod tests {
             EventTimestamps::local_now(),
             TelemetryEvent::MarketL1(MarketL1Event {
                 symbol: SymbolId("ES".into()),
-                best_bid: PriceLevel { price: 5400.00, size: 150.0 },
-                best_ask: PriceLevel { price: 5400.25, size: 120.0 },
+                best_bid: PriceLevel {
+                    price: 5400.00,
+                    size: 150.0,
+                },
+                best_ask: PriceLevel {
+                    price: 5400.25,
+                    size: 120.0,
+                },
                 mid_price: 5400.125,
                 spread: 0.25,
                 last_trade_price: Some(5400.00),
@@ -194,8 +200,14 @@ mod tests {
             EventTimestamps::local_now(),
             TelemetryEvent::MarketL1(MarketL1Event {
                 symbol: SymbolId("ES".into()),
-                best_bid: PriceLevel { price: 5401.00, size: 150.0 },
-                best_ask: PriceLevel { price: 5400.00, size: 120.0 },
+                best_bid: PriceLevel {
+                    price: 5401.00,
+                    size: 150.0,
+                },
+                best_ask: PriceLevel {
+                    price: 5400.00,
+                    size: 120.0,
+                },
                 mid_price: 5400.50,
                 spread: -1.0,
                 last_trade_price: None,
@@ -213,8 +225,14 @@ mod tests {
             EventTimestamps::empty(),
             TelemetryEvent::MarketL1(MarketL1Event {
                 symbol: SymbolId("ES".into()),
-                best_bid: PriceLevel { price: 5400.00, size: 150.0 },
-                best_ask: PriceLevel { price: 5400.25, size: 120.0 },
+                best_bid: PriceLevel {
+                    price: 5400.00,
+                    size: 150.0,
+                },
+                best_ask: PriceLevel {
+                    price: 5400.25,
+                    size: 120.0,
+                },
                 mid_price: 5400.125,
                 spread: 0.25,
                 last_trade_price: None,

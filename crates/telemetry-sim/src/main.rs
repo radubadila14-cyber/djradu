@@ -40,7 +40,10 @@ use telemetry_core::writer::JsonlWriter;
 fn main() -> anyhow::Result<()> {
     println!("╔══════════════════════════════════════════════════╗");
     println!("║  GOLDEN TRACE GENERATOR — ES Futures             ║");
-    println!("║  Telemetry Contract v{}                      ║", SCHEMA_VERSION);
+    println!(
+        "║  Telemetry Contract v{}                      ║",
+        SCHEMA_VERSION
+    );
     println!("╚══════════════════════════════════════════════════╝");
 
     // Deterministic seed for reproducibility
@@ -175,7 +178,10 @@ fn main() -> anyhow::Result<()> {
     );
     writer.write(&decision_envelope)?;
 
-    println!("  Decision: BUY 5 ES @ mid {:.2}, confidence 0.73", decision_mid);
+    println!(
+        "  Decision: BUY 5 ES @ mid {:.2}, confidence 0.73",
+        decision_mid
+    );
 
     // ─── PHASE 3: Risk Check ────────────────────────────────────────────────
     println!("--- Phase 3: Risk Check ---");
@@ -378,17 +384,32 @@ fn main() -> anyhow::Result<()> {
     println!("║  Symbol:              ES (E-mini S&P 500)        ║");
     println!("║  Side:                BUY                         ║");
     println!("║  Quantity:            5 contracts                 ║");
-    println!("║  Decision mid:        {:.2}                    ║", decision_mid);
-    println!("║  Avg fill price:      {:.2}                    ║", avg_fill);
+    println!(
+        "║  Decision mid:        {:.2}                    ║",
+        decision_mid
+    );
+    println!(
+        "║  Avg fill price:      {:.2}                    ║",
+        avg_fill
+    );
     println!(
         "║  Slippage (vs dec):   {:.2} ticks ({:.4} pts)    ║",
         slippage_vs_decision / tick_size,
         slippage_vs_decision
     );
     println!("║  Fill ratio:          100% (5/5)                  ║");
-    println!("║  Time to fill:        {:.1}ms                    ║", time_to_fill_ms);
-    println!("║  Total fees:          ${:.2}                     ║", total_fees);
-    println!("║  Latency (dec→ack):   {}μs                     ║", 50 + ack_latency_us);
+    println!(
+        "║  Time to fill:        {:.1}ms                    ║",
+        time_to_fill_ms
+    );
+    println!(
+        "║  Total fees:          ${:.2}                     ║",
+        total_fees
+    );
+    println!(
+        "║  Latency (dec→ack):   {}μs                     ║",
+        50 + ack_latency_us
+    );
     println!("║  Liquidity role:      Taker (all fills)           ║");
     println!("╠══════════════════════════════════════════════════╣");
     println!(

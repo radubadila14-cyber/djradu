@@ -33,10 +33,7 @@ pub struct JsonlWriter {
 impl JsonlWriter {
     /// Open or create a JSONL file for writing.
     pub fn new(path: &Path) -> anyhow::Result<Self> {
-        let file = OpenOptions::new()
-            .create(true)
-            .append(true)
-            .open(path)?;
+        let file = OpenOptions::new().create(true).append(true).open(path)?;
 
         Ok(Self {
             writer: BufWriter::new(file),

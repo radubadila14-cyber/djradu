@@ -54,14 +54,12 @@ impl Config {
                 .context("DATABASE_URL must be set — get it from Railway PostgreSQL")?,
             redis_url: std::env::var("REDIS_URL")
                 .context("REDIS_URL must be set — get it from Railway Redis")?,
-            quant_api_key: std::env::var("QUANT_API_KEY")
-                .context("QUANT_API_KEY must be set")?,
+            quant_api_key: std::env::var("QUANT_API_KEY").context("QUANT_API_KEY must be set")?,
             quant_api_base_url: std::env::var("QUANT_API_BASE_URL")
                 .unwrap_or_else(|_| "https://api.example.com/v1".to_string()),
             lambda_labs_api_key: std::env::var("LAMBDA_LABS_API_KEY").ok(),
             // Railway requires 0.0.0.0; locally default to 127.0.0.1
-            app_host: std::env::var("APP_HOST")
-                .unwrap_or_else(|_| "0.0.0.0".to_string()),
+            app_host: std::env::var("APP_HOST").unwrap_or_else(|_| "0.0.0.0".to_string()),
             // Railway sets PORT; fall back to APP_PORT or 8080
             app_port: std::env::var("PORT")
                 .or_else(|_| std::env::var("APP_PORT"))

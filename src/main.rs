@@ -26,6 +26,8 @@ mod db;
 mod journal;
 mod models;
 mod quant;
+#[cfg(feature = "telemetry-integration")]
+mod telemetry;
 
 use anyhow::Result;
 
