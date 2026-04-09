@@ -6,7 +6,7 @@ RUN apt-get update && apt-get install -y pkg-config libssl-dev && rm -rf /var/li
 WORKDIR /app
 COPY . .
 
-RUN cargo build --release --bin radu-trading-system
+RUN cargo build --release --package radu-trading-system
 
 # Stage 2: Minimal runtime
 FROM debian:bookworm-slim
