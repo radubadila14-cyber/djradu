@@ -96,6 +96,45 @@ pub async fn init_schema(pool: &PgPool) -> Result<()> {
     .await
     .context("Failed to create model_configs table")?;
 
-    tracing::info!("Database schema initialized!");
+    // Telemetry events table — stores validated events for replay and analysis
+    sqlx::query(
+        r#"
+        CREATE TABLE IF NOT EXISTS telemetry_events (
+            id              BIGSERIAL PRIMARY KEY,
+            trace_id        UUID NOT NULL,
+            event_type      VARCHAR(50) NOT NULL,
+            schema_version  VARCHAR(20) NOT NULL,
+            payload         JSONB NOT NULL,
+            created_at      TIMESTAMPTZ NOT NULL DEFAULT NOW()
+        )
+        "#,
+    )
+    .execute(pool)
+    .await
+    .context("Failed to create telemetry_events table")?;
+
+    // Index for fast trace lookups (all events in a trace)
+    sqlx::query(
+        r#"
+        CREATE INDEX IF NOT EXISTS idx_telemetry_trace_id
+        ON telemetry_events (trace_id)
+        "#,
+    )
+    .execute(pool)
+    .await
+    .context("Failed to create telemetry trace_id index")?;
+
+    // Index for filtering by event type
+    sqlx::query(
+        r#"
+        CREATE INDEX IF NOT EXISTS idx_telemetry_event_type
+        ON telemetry_events (event_type)
+        "#,
+    )
+    .execute(pool)
+    .await
+    .context("Failed to create telemetry event_type index")?;
+
+    tracing::info!("Database schema initialized (5 tables, 2 indexes)");
     Ok(())
 }
