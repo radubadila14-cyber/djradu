@@ -3,6 +3,7 @@ members = [
     ".",
     "crates/telemetry-core",
     "crates/telemetry-sim",
+    "crates/telemetry-viewer",
 ]
 resolver = "3"
 

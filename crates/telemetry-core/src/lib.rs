@@ -12,8 +12,8 @@
 // Schema version: 0.1.0
 // =============================================================================
 
+pub mod events;
 pub mod ids;
 pub mod timestamps;
-pub mod events;
 pub mod validate;
 pub mod writer;

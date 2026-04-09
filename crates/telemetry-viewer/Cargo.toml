@@ -1,0 +1,10 @@
+[package]
+name = "telemetry-viewer"
+version = "0.1.0"
+edition = "2024"
+description = "KPI computation CLI: reads a JSONL telemetry log and prints trading KPIs"
+
+[dependencies]
+telemetry-core = { path = "../telemetry-core" }
+anyhow = "1.0.102"
+serde_json = "1.0.149"

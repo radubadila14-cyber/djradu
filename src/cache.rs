@@ -79,7 +79,9 @@ pub async fn get_cached_price(
     let key = format!("radu:price:{}", symbol);
     let value: Option<String> = conn.get(&key).await.context("Failed to get cached price")?;
     match value {
-        Some(v) => Ok(Some(v.parse().context("Cached price is not a valid number")?)),
+        Some(v) => Ok(Some(
+            v.parse().context("Cached price is not a valid number")?,
+        )),
         None => Ok(None),
     }
 }
