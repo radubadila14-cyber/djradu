@@ -1,0 +1,10 @@
+[build]
+builder = "nixpacks"
+
+[build.nixpacks]
+aptPkgs = ["libssl-dev", "pkg-config"]
+
+[deploy]
+startCommand = "./target/release/radu-trading-system"
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 10

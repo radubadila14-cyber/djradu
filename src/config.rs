@@ -56,9 +56,12 @@ impl Config {
             quant_api_base_url: std::env::var("QUANT_API_BASE_URL")
                 .unwrap_or_else(|_| "https://api.example.com/v1".to_string()),
             lambda_labs_api_key: std::env::var("LAMBDA_LABS_API_KEY").ok(),
+            // Railway requires 0.0.0.0; locally default to 127.0.0.1
             app_host: std::env::var("APP_HOST")
-                .unwrap_or_else(|_| "127.0.0.1".to_string()),
-            app_port: std::env::var("APP_PORT")
+                .unwrap_or_else(|_| "0.0.0.0".to_string()),
+            // Railway sets PORT; fall back to APP_PORT or 8080
+            app_port: std::env::var("PORT")
+                .or_else(|_| std::env::var("APP_PORT"))
                 .unwrap_or_else(|_| "8080".to_string())
                 .parse()
                 .context("APP_PORT must be a valid number")?,
