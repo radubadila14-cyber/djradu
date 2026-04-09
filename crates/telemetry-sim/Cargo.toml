@@ -1,0 +1,13 @@
+[package]
+name = "telemetry-sim"
+version = "0.1.0"
+edition = "2024"
+description = "Golden trace generator: produces a deterministic end-to-end ES futures trace"
+
+[dependencies]
+telemetry-core = { path = "../telemetry-core" }
+chrono = { version = "0.4.44", features = ["serde"] }
+serde_json = "1.0.149"
+uuid = { version = "1", features = ["v4"] }
+anyhow = "1.0.102"
+rand = "0.9"

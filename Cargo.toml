@@ -1,3 +1,11 @@
+[workspace]
+members = [
+    ".",
+    "crates/telemetry-core",
+    "crates/telemetry-sim",
+]
+resolver = "3"
+
 [package]
 name = "radu-trading-system"
 version = "0.1.0"
